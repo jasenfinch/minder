@@ -21,6 +21,7 @@ memoryInfo <- function(units = 'KB'){
   return(mem)
 }
 
+#' @importFrom tibble tibble
 #' @export
 
 convertUnits <- function(value,from,to,factor = 1024){

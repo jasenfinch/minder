@@ -1,3 +1,5 @@
+#' @importFrom stringr str_detect
+#' @importFrom dplyr mutate
 #' @export
 
 cpuInfo <- function(){
@@ -21,4 +23,25 @@ cpus <- function(){
     filter(Type == 'CPU(s)') %>%
     .$Value %>%
     as.numeric()
+}
+
+#' @export
+
+cpuUsage <- function(){
+  processes() %>%
+   .$`%CPU` %>%
+    as.numeric() %>%
+    {. / 100} %>%
+    sum()
+}
+
+#' @export
+
+cpuUser <- function(){
+  processes() %>%
+    mutate(CPUs = as.numeric(`%CPU`)) %>%
+    group_by(USER) %>%
+    summarise(CPUs = sum(CPUs) %>% {. / 100},`%` = CPUs / cpus() * 100) %>%
+    filter(CPUs > 0) %>%
+    arrange(desc(CPUs))
 }

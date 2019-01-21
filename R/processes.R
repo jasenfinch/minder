@@ -25,5 +25,6 @@ processes <- function(root = TRUE){
     a %>%
       filter(USER != 'root')
   }
+  return(a)
 }
 
