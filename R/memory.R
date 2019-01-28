@@ -60,3 +60,29 @@ totalMemory <- function(units = 'KB'){
 usedMemory <- function(units = 'KB'){
   totalMemory(units = units) - availableMemory(units = units)
 }
+
+#' @export
+
+userMemory <- function(units = 'KB'){
+  procs <- processes() %>%
+    mutate(MEM = RSS %>%
+             str_remove_all('[:alpha:]') %>%
+             as.numeric()
+    ) %>%
+    select(USER,MEM)
+  
+  if (units != 'KB') {
+    procs <- procs %>%
+      mutate(MEM = convertUnits(MEM,'KB',units))
+  }
+  
+  mem <- procs %>%
+    group_by(USER) %>%
+    summarise(MEM = sum(MEM)) %>%
+    arrange(desc(MEM)) %>%
+    filter(MEM > 0) %>%
+    mutate(`%MEM` = MEM / totalMemory(units) * 100) %>%
+    select(USER,MEM,`%MEM`)
+  
+  return(mem)
+}
