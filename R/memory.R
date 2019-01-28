@@ -61,6 +61,7 @@ usedMemory <- function(units = 'KB'){
   totalMemory(units = units) - availableMemory(units = units)
 }
 
+#' @importFrom dplyr select
 #' @export
 
 userMemory <- function(units = 'KB'){

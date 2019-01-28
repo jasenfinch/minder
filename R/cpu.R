@@ -35,6 +35,7 @@ cpuUsage <- function(){
     sum()
 }
 
+#' @importFrom dplyr arrange desc group_by summarise
 #' @export
 
 cpuUser <- function(){
