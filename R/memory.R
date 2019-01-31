@@ -1,3 +1,6 @@
+#' memory
+#' @description Return memory usage information.
+#' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom magrittr set_colnames
 #' @export
 memoryInfo <- function(units = 'KB'){
@@ -21,6 +24,13 @@ memoryInfo <- function(units = 'KB'){
   return(mem)
 }
 
+#' convertUnits
+#' @description Convert between memory units.
+#' @param value value to convert
+#' @param from units converting from
+#' @param to units to convert to
+#' @param factor conversion factor
+#' @details Units can include B, KB, MB, GB
 #' @importFrom tibble tibble
 #' @export
 
@@ -38,6 +48,8 @@ convertUnits <- function(value,from,to,factor = 1024){
   }
 }
 
+#' availableMemory
+#' 
 #' @export
 
 availableMemory <- function(units = 'KB'){

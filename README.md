@@ -1,2 +1,2 @@
 # minder
-Monitor your computer from within R
+Monitor your linux computer from within R
