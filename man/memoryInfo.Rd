@@ -4,11 +4,11 @@
 \alias{memoryInfo}
 \title{memory}
 \usage{
-memoryInfo(units = "KB")
+memoryInfo(units = "GB")
 }
 \arguments{
 \item{units}{units in which to return memory values (B,KB,MB,GB)}
 }
 \description{
-Return memory usage information.
+Return system memory usage information.
 }

@@ -1,3 +1,5 @@
+#' cpuInfo
+#' @description Return system cpu information.
 #' @importFrom stringr str_detect
 #' @importFrom dplyr mutate
 #' @export
@@ -15,6 +17,8 @@ cpuInfo <- function(){
     mutate(Value = str_remove_all(Value,'^[\\s]+'))
 }
 
+#' cpus
+#' @description Return number of system cpus.
 #' @importFrom parallel detectCores
 #' @export
 
@@ -25,9 +29,11 @@ cpus <- function(){
     as.numeric()
 }
 
+#' cpuUsage
+#' @description Total system cpu load.
 #' @export
 
-cpuUsage <- function(){
+cpuLoad <- function(){
   processes() %>%
    .$`%CPU` %>%
     as.numeric() %>%
@@ -35,6 +41,8 @@ cpuUsage <- function(){
     sum()
 }
 
+#' cpuUser
+#' @description Return user cpu usage.
 #' @importFrom dplyr arrange desc group_by summarise
 #' @export
 

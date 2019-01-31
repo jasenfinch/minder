@@ -1,9 +1,9 @@
 #' memory
-#' @description Return memory usage information.
+#' @description Return system memory usage information.
 #' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom magrittr set_colnames
 #' @export
-memoryInfo <- function(units = 'KB'){
+memoryInfo <- function(units = 'GB'){
   mem <- 'cat /proc/meminfo' %>%
     system(intern = TRUE) %>%
     map(~{
@@ -49,34 +49,44 @@ convertUnits <- function(value,from,to,factor = 1024){
 }
 
 #' availableMemory
-#' 
+#' @description Return available system memeory.
+#' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @export
 
-availableMemory <- function(units = 'KB'){
+memoryAvailable <- function(units = 'GB'){
  memoryInfo(units = units) %>%
     filter(Type == 'MemAvailable') %>%
     .$Size
 }
 
+#' totalMemory
+#' @description Return total system memeory.
+#' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @importFrom stringr str_remove_all
 #' @export
 
-totalMemory <- function(units = 'KB'){
+memoryTotal <- function(units = 'GB'){
   memoryInfo(units = units) %>%
     filter(Type == 'MemTotal') %>%
     .$Size
 }
 
+#' usedMemory
+#' @description Return used system memeory.
+#' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @export
 
-usedMemory <- function(units = 'KB'){
+memoryUsed <- function(units = 'GB'){
   totalMemory(units = units) - availableMemory(units = units)
 }
 
+#' userMemory
+#' @description Return user system memory usage.
+#' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom dplyr select
 #' @export
 
-userMemory <- function(units = 'KB'){
+memoryUser <- function(units = 'GB'){
   procs <- processes() %>%
     mutate(MEM = RSS %>%
              str_remove_all('[:alpha:]') %>%
