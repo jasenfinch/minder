@@ -14,7 +14,7 @@ processes <- function(root = TRUE){
   a <- system('ps -aux',intern = T) %>%
     map(~{
       str_split_fixed(.,pattern = '\\s+',n = 11) %>%
-        as_tibble()
+        as_tibble(.name_repair = 'universal')
     }) %>%
     bind_rows()
   
