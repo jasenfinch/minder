@@ -2,7 +2,7 @@
 % Please edit documentation in R/memory.R
 \name{memoryTotal}
 \alias{memoryTotal}
-\title{totalMemory}
+\title{memoryTotal}
 \usage{
 memoryTotal(units = "GB")
 }

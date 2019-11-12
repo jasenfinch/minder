@@ -2,7 +2,7 @@
 % Please edit documentation in R/memory.R
 \name{memoryAvailable}
 \alias{memoryAvailable}
-\title{availableMemory}
+\title{memoryAvailable}
 \usage{
 memoryAvailable(units = "GB")
 }
