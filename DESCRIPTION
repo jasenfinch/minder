@@ -16,7 +16,8 @@ Imports: dplyr,
         pingr,
         purrr,
         stringr,
-        tibble
+        tibble,
+        lubridate
 Suggests: 
     testthat,
     covr
