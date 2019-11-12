@@ -3,7 +3,7 @@
 #' @importFrom lubridate ymd_hms now time_length
 #' @export
 
-uptime <- function(quiet = FALSE){
+uptime <- function(){
   since <- system('uptime -s',intern = TRUE)  %>% 
     ymd_hms(tz = Sys.timezone())
   

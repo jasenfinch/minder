@@ -4,7 +4,7 @@
 \alias{uptime}
 \title{uptime}
 \usage{
-uptime(quiet = FALSE)
+uptime()
 }
 \description{
 Return system uptime in seconds

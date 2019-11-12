@@ -17,3 +17,6 @@ Imports: dplyr,
         purrr,
         stringr,
         tibble
+Suggests: 
+    testthat,
+    covr
