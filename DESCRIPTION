@@ -1,6 +1,6 @@
 Package: minder
 Title: Monitor Linux System Resources
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Jasen",
            family = "Finch",
@@ -10,10 +10,14 @@ Description: Monitor linux system resources.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0
 Imports: dplyr,
         magrittr,
         pingr,
         purrr,
         stringr,
-        tibble
+        tibble,
+        lubridate
+Suggests: 
+    testthat,
+    covr

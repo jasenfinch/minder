@@ -48,7 +48,7 @@ convertUnits <- function(value,from,to,factor = 1024){
   }
 }
 
-#' availableMemory
+#' memoryAvailable
 #' @description Return available system memeory.
 #' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @export
@@ -59,7 +59,7 @@ memoryAvailable <- function(units = 'GB'){
     .$Size
 }
 
-#' totalMemory
+#' memoryTotal
 #' @description Return total system memeory.
 #' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @importFrom stringr str_remove_all
@@ -77,7 +77,7 @@ memoryTotal <- function(units = 'GB'){
 #' @export
 
 memoryUsed <- function(units = 'GB'){
-  totalMemory(units = units) - availableMemory(units = units)
+  memoryTotal(units = units) - memoryAvailable(units = units)
 }
 
 #' userMemory
@@ -104,7 +104,7 @@ memoryUser <- function(units = 'GB'){
     summarise(MEM = sum(MEM)) %>%
     arrange(desc(MEM)) %>%
     filter(MEM > 0) %>%
-    mutate(`%MEM` = MEM / totalMemory(units) * 100) %>%
+    mutate(`%MEM` = MEM / memoryTotal(units) * 100) %>%
     select(USER,MEM,`%MEM`)
   
   return(mem)
