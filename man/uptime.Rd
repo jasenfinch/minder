@@ -4,7 +4,10 @@
 \alias{uptime}
 \title{uptime}
 \usage{
-uptime()
+uptime(unit = "second")
+}
+\arguments{
+\item{unit}{a character string that specifies with time units to use (see \code{?lubridate::time_length})}
 }
 \description{
 Return system uptime in seconds
