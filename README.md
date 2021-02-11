@@ -1,8 +1,8 @@
 # minder
 
- <!-- badges: start -->
+<!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Travis build status](https://travis-ci.org/jasenfinch/minder.svg?branch=master)](https://travis-ci.org/jasenfinch/minder)
+[![R-CMD-check](https://github.com/jasenfinch/minder/workflows/R-CMD-check/badge.svg)](https://github.com/jasenfinch/minder/actions)
 [![Codecov test coverage](https://codecov.io/gh/jasenfinch/minder/branch/master/graph/badge.svg)](https://codecov.io/gh/jasenfinch/minder?branch=master)
 <!-- badges: end -->
 
