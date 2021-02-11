@@ -1,4 +1,4 @@
-#' uptime
+#' Current system uptime
 #' @description Return system uptime in seconds
 #' @param unit a character string that specifies with time units to use (see \code{?lubridate::time_length})
 #' @importFrom lubridate ymd_hms now time_length interval

@@ -2,7 +2,7 @@
 % Please edit documentation in R/whoami.R
 \name{whoami}
 \alias{whoami}
-\title{whoami}
+\title{Curren system username}
 \usage{
 whoami()
 }

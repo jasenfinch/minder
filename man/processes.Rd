@@ -2,7 +2,7 @@
 % Please edit documentation in R/processes.R
 \name{processes}
 \alias{processes}
-\title{processes}
+\title{Current system processes}
 \usage{
 processes(root = TRUE)
 }

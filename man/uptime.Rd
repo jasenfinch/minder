@@ -2,7 +2,7 @@
 % Please edit documentation in R/uptime.R
 \name{uptime}
 \alias{uptime}
-\title{uptime}
+\title{Current system uptime}
 \usage{
 uptime(unit = "second")
 }

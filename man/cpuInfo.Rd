@@ -2,7 +2,7 @@
 % Please edit documentation in R/cpu.R
 \name{cpuInfo}
 \alias{cpuInfo}
-\title{cpuInfo}
+\title{System CPU information}
 \usage{
 cpuInfo()
 }

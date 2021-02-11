@@ -2,7 +2,7 @@
 % Please edit documentation in R/isAlive.R
 \name{isAlive}
 \alias{isAlive}
-\title{alive}
+\title{Check if a host is active}
 \usage{
 isAlive(host, port = NULL)
 }

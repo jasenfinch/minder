@@ -2,7 +2,7 @@
 % Please edit documentation in R/host.R
 \name{ipaddress}
 \alias{ipaddress}
-\title{ipaddress}
+\title{Current host IP address}
 \usage{
 ipaddress()
 }

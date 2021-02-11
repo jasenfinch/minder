@@ -2,10 +2,10 @@
 % Please edit documentation in R/cpu.R
 \name{cpus}
 \alias{cpus}
-\title{cpus}
+\title{The number of system CPUs}
 \usage{
 cpus()
 }
 \description{
-Return number of system cpus.
+Return number of system CPUs.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/host.R
 \name{hostname}
 \alias{hostname}
-\title{hostname}
+\title{Current system host name}
 \usage{
 hostname()
 }

@@ -1,4 +1,4 @@
-#' hostname
+#' Current system host name
 #' @description Return hostname.
 #' @export
 
@@ -6,7 +6,7 @@ hostname <- function(){
   system('hostname',intern = TRUE)
 }
 
-#' ipaddress
+#' Current host IP address
 #' @description Return the IPv4 address.
 #' @export
 

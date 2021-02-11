@@ -1,4 +1,4 @@
-#' processes
+#' Current system processes
 #' @description Return system processes
 #' @param root should root processes be returned
 #' @examples 

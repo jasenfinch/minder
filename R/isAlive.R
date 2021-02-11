@@ -1,4 +1,4 @@
-#' alive
+#' Check if a host is active
 #' @description Check if a host is active.
 #' @param host host address
 #' @param port port to check
