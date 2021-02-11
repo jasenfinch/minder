@@ -2,12 +2,9 @@
 % Please edit documentation in R/memory.R
 \name{memoryInfo}
 \alias{memoryInfo}
-\title{memory}
+\title{System memory information}
 \usage{
-memoryInfo(units = "GB")
-}
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
+memoryInfo()
 }
 \description{
 Return system memory usage information.

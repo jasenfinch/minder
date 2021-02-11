@@ -2,12 +2,9 @@
 % Please edit documentation in R/disks.R
 \name{partitions}
 \alias{partitions}
-\title{partitions}
+\title{Disk partition information}
 \usage{
-partitions(units = "GB")
-}
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
+partitions()
 }
 \description{
 Summary of system disk partitions.

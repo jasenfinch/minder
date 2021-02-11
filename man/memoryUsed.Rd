@@ -2,12 +2,9 @@
 % Please edit documentation in R/memory.R
 \name{memoryUsed}
 \alias{memoryUsed}
-\title{usedMemory}
+\title{Used system memory}
 \usage{
-memoryUsed(units = "GB")
-}
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
+memoryUsed()
 }
 \description{
 Return used system memeory.

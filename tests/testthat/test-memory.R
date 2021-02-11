@@ -6,11 +6,6 @@ test_that('memoryInfo works',{
   expect_identical(class(memInf),c("tbl_df","tbl","data.frame"))
 })
 
-test_that('convertUnits works',{
-  a <- convertUnits(1024,'MB','GB')
-  expect_equal(a,1)
-})
-
 test_that('memoryAvailable works',{
   memAvail <- memoryAvailable()
   expect_type(memAvail,'double')

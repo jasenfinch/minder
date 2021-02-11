@@ -2,9 +2,9 @@
 % Please edit documentation in R/memory.R
 \name{memoryUser}
 \alias{memoryUser}
-\title{userMemory}
+\title{System memory by user}
 \usage{
-memoryUser(units = "GB")
+memoryUser()
 }
 \arguments{
 \item{units}{units in which to return memory values (B,KB,MB,GB)}
