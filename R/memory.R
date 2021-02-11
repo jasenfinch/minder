@@ -51,7 +51,6 @@ memoryUsed <- function(){
 
 #' System memory by user
 #' @description Return user system memory usage.
-#' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom dplyr select
 #' @importFrom stringr str_remove_all
 #' @export

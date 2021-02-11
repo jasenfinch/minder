@@ -6,9 +6,6 @@
 \usage{
 memoryUser()
 }
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
-}
 \description{
 Return user system memory usage.
 }
