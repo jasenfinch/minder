@@ -6,7 +6,9 @@ Authors@R:
            family = "Finch",
            role = c("aut", "cre"),
            email = "jsf9@aber.ac.uk")
-Description: Monitor linux system resources.
+Description: Monitor linux system resources such as CPU, memory and disk usage.
+URL: https://jasenfinch.github.io/minder/
+BugReports: https://github.com/jasenfinch/minder/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
