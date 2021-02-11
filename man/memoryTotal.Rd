@@ -2,12 +2,9 @@
 % Please edit documentation in R/memory.R
 \name{memoryTotal}
 \alias{memoryTotal}
-\title{memoryTotal}
+\title{Total system memory}
 \usage{
-memoryTotal(units = "GB")
-}
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
+memoryTotal()
 }
 \description{
 Return total system memeory.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cpu.R
 \name{cpuLoad}
 \alias{cpuLoad}
-\title{cpuUsage}
+\title{Current system CPU usage}
 \usage{
 cpuLoad()
 }

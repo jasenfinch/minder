@@ -2,7 +2,7 @@
 % Please edit documentation in R/cpu.R
 \name{cpuUser}
 \alias{cpuUser}
-\title{cpuUser}
+\title{System CPU usage by user}
 \usage{
 cpuUser()
 }

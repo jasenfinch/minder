@@ -1,23 +1,26 @@
 Package: minder
 Title: Monitor Linux System Resources
-Version: 0.1.2
+Version: 0.2.0
 Authors@R: 
     person(given = "Jasen",
            family = "Finch",
            role = c("aut", "cre"),
            email = "jsf9@aber.ac.uk")
-Description: Monitor linux system resources.
+Description: Monitor linux system resources such as CPU, memory and disk usage.
+URL: https://jasenfinch.github.io/minder/
+BugReports: https://github.com/jasenfinch/minder/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Imports: dplyr,
         magrittr,
         pingr,
         purrr,
         stringr,
         tibble,
-        lubridate
+        lubridate,
+        fs
 Suggests: 
     testthat,
     covr

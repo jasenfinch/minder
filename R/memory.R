@@ -1,9 +1,9 @@
-#' memory
+#' System memory information
 #' @description Return system memory usage information.
-#' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom magrittr set_colnames
+#' @importFrom fs as_fs_bytes
 #' @export
-memoryInfo <- function(units = 'GB'){
+memoryInfo <- function(){
   mem <- 'cat /proc/meminfo' %>%
     system(intern = TRUE) %>%
     map(~{
@@ -16,95 +16,62 @@ memoryInfo <- function(units = 'GB'){
            Size = str_remove_all(Size,'[:alpha:]') %>% 
              as.numeric() %>%
              {. * 1024}
-             )
-  if (units != 'B') {
-    mem <- mem %>%
-      mutate(Size = convertUnits(Size,'B',units))
-  }
+             ) %>%
+    mutate(Size = as_fs_bytes(Size))
   return(mem)
 }
 
-#' convertUnits
-#' @description Convert between memory units.
-#' @param value value to convert
-#' @param from units converting from
-#' @param to units to convert to
-#' @param factor conversion factor
-#' @details Units can include B, KB, MB, GB
-#' @importFrom tibble tibble
-#' @export
-
-convertUnits <- function(value,from,to,factor = 1024){
-  convert <- tibble(Unit = c('B','KB','MB','GB'),Value = c(0:3)) %>%
-    filter(Unit == from | Unit == to)
-  
-  from <- convert$Value[convert$Unit == from]
-  to <- convert$Value[convert$Unit == to]
-  
-  if (from < to) {
-    value / factor ^ (to - from)
-  } else {
-    value * factor ^ (from - to)
-  }
-}
-
-#' memoryAvailable
+#' Available system memory
 #' @description Return available system memeory.
-#' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @export
 
-memoryAvailable <- function(units = 'GB'){
- memoryInfo(units = units) %>%
+memoryAvailable <- function(){
+ memoryInfo() %>%
     filter(Type == 'MemAvailable') %>%
     .$Size
 }
 
-#' memoryTotal
+#' Total system memory
 #' @description Return total system memeory.
-#' @param units units in which to return memory values (B,KB,MB,GB) 
-#' @importFrom stringr str_remove_all
 #' @export
 
-memoryTotal <- function(units = 'GB'){
-  memoryInfo(units = units) %>%
+memoryTotal <- function(){
+  memoryInfo() %>%
     filter(Type == 'MemTotal') %>%
     .$Size
 }
 
-#' usedMemory
+#' Used system memory
 #' @description Return used system memeory.
-#' @param units units in which to return memory values (B,KB,MB,GB) 
 #' @export
 
-memoryUsed <- function(units = 'GB'){
-  memoryTotal(units = units) - memoryAvailable(units = units)
+memoryUsed <- function(){
+  memoryTotal() - memoryAvailable()
 }
 
-#' userMemory
+#' System memory by user
 #' @description Return user system memory usage.
-#' @param units units in which to return memory values (B,KB,MB,GB)
 #' @importFrom dplyr select
+#' @importFrom stringr str_remove_all
 #' @export
 
-memoryUser <- function(units = 'GB'){
+memoryUser <- function(){
   procs <- processes() %>%
     mutate(MEM = RSS %>%
              str_remove_all('[:alpha:]') %>%
-             as.numeric()
+             as.numeric() %>%
+             {. * 1024} %>%
+             as_fs_bytes()
     ) %>%
     select(USER,MEM)
-  
-  if (units != 'KB') {
-    procs <- procs %>%
-      mutate(MEM = convertUnits(MEM,'KB',units))
-  }
   
   mem <- procs %>%
     group_by(USER) %>%
     summarise(MEM = sum(MEM)) %>%
     arrange(desc(MEM)) %>%
     filter(MEM > 0) %>%
-    mutate(`%MEM` = MEM / memoryTotal(units) * 100) %>%
+    mutate(`%MEM` = {MEM / memoryTotal() * 100} %>%
+             as.numeric()) %>%
     select(USER,MEM,`%MEM`)
   
   return(mem)

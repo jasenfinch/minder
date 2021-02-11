@@ -2,12 +2,9 @@
 % Please edit documentation in R/memory.R
 \name{memoryAvailable}
 \alias{memoryAvailable}
-\title{memoryAvailable}
+\title{Available system memory}
 \usage{
-memoryAvailable(units = "GB")
-}
-\arguments{
-\item{units}{units in which to return memory values (B,KB,MB,GB)}
+memoryAvailable()
 }
 \description{
 Return available system memeory.

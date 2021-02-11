@@ -1,4 +1,4 @@
-#' whoami
+#' Curren system username
 #' @description Return the user name associated with the current effective user ID.
 #' @export
 

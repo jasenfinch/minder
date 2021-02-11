@@ -1,10 +1,9 @@
-#' partitions
+#' Disk partition information
 #' @description Summary of system disk partitions.
-#' @param units units in which to return memory values (B,KB,MB,GB)
-#' @importFrom dplyr rename
+#' @importFrom dplyr rename mutate_if
 #' @export
 
-partitions <- function(units = 'GB'){
+partitions <- function(){
   dsks <- system('df',intern = TRUE) %>%
     map(~{
       str_split_fixed(.,pattern = '\\s+',n = 6) %>%
@@ -16,13 +15,9 @@ partitions <- function(units = 'GB'){
     mutate(`1K-blocks` = as.numeric(`1K-blocks`),
            Used = as.numeric(Used),
            Available = as.numeric(Available)) %>%
-    rename(Size = `1K-blocks`)
+    rename(Size = `1K-blocks`) %>%
+    mutate_if(is.numeric,~{. * 1024}) %>%
+    mutate_if(is.numeric,as_fs_bytes)
   
-  if (units != 'KB') {
-    dsks <- dsks %>%
-      mutate(Size = convertUnits(Size,'KB',units),
-             Used = convertUnits(Used,'KB',units),
-             Available = convertUnits(Available,'KB',units))
-  }
   return(dsks)
 }
